@@ -5,7 +5,7 @@ from html_matcher.similarity import Similarity
 
 class StyleSimilarity(Similarity):
 
-    def get_classes(self, html):
+    def classes(self, html):
         doc = Selector(text=html)
         classes = set(doc.xpath('//*[@class]/@class').extract())
         result = set()
@@ -23,9 +23,9 @@ class StyleSimilarity(Similarity):
             return 1.0
 
         denominator = len(set1) + len(set2) - intersection
-        return intersection / max(denominator, 0.000001)
+        return intersection / denominator
 
     def similarity(self, page1, page2):
-        classes_page1 = self.get_classes(page1)
-        classes_page2 = self.get_classes(page2)
+        classes_page1 = self.classes(page1)
+        classes_page2 = self.classes(page2)
         return self.jaccard_similarity(classes_page1, classes_page2)
