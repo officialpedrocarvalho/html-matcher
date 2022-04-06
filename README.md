@@ -12,7 +12,7 @@ pip install html-matcher
 ## How to USE?
 
 By comparing the HTML structure, style, or both, the similarity ratio can be computed. Two techniques are available for
-structure comparison: Longest Common Sequence (LCS) and All Path Tree Edit Distance (APTED). One algorithm that uses the
+structure comparison: Longest Common Subsequence (LCS) and All Path Tree Edit Distance (APTED). One algorithm that uses the
 jaccard similarity metric is offered for style comparison.
 
 ### Structure

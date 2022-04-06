@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.5'
+VERSION = '0.0.6'
 DESCRIPTION = 'Algorithms to find similarity between HTML pages.'
 LONG_DESCRIPTION = 'A package that allows to compare website/app HTML page structure. Contains algorithms that find a ' \
                    'similarity rate between two HTML structures.'
