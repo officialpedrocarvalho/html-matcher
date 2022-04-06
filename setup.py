@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1'
+VERSION = '0.0.5'
 DESCRIPTION = 'Algorithms to find similarity between HTML pages.'
 LONG_DESCRIPTION = 'A package that allows to compare website/app HTML page structure. Contains algorithms that find a ' \
                    'similarity rate between two HTML structures.'
 
 # Setting up
 setup(
-    name="html_matcher",
+    name="html-matcher",
     version=VERSION,
     author="Pedro Carvalho",
     author_email="<pedrocarvalho812@gmail.com>",
@@ -15,6 +15,8 @@ setup(
     long_description_content_type="text/markdown",
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
+    url='https://github.com/officialpedrocarvalho/html-matcher',
+    download_url='https://github.com/officialpedrocarvalho/html-matcher/releases/tag/version',
     install_requires=['XlsxWriter', 'parsel', 'lxml', 'apted'],
     keywords=['python', 'website', 'webapp', 'html', 'similarity', 'match', 'rate'],
     classifiers=[

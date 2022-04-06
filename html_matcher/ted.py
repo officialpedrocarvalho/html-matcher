@@ -4,8 +4,8 @@ import lxml
 from apted.apted import APTED
 from apted.config import Config
 
-from similarity import Similarity
-from utils import json_count_elements, html_to_json, html_to_json_improved
+from html_matcher.similarity import Similarity
+from html_matcher.utils import json_count_elements, html_to_json, html_to_json_improved
 
 
 class CustomConfig(Config):
@@ -21,9 +21,9 @@ class CustomConfig(Config):
 class AllPathTreeEditDistance(Similarity):
 
     def similarity(self, page1, page2):
-        html1 = lxml.html.parse(StringIO(page1)).find('body')
+        html1 = lxml.html.parse(StringIO(page1))
         tree1 = html_to_json(html1)
-        html2 = lxml.html.parse(StringIO(page2)).find('body')
+        html2 = lxml.html.parse(StringIO(page2))
         tree2 = html_to_json(html2)
         apted = APTED(tree1, tree2, CustomConfig())
         matching = apted.compute_edit_distance()
