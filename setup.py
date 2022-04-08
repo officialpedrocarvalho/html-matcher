@@ -1,9 +1,10 @@
 from setuptools import setup, find_packages
+from pathlib import Path
 
-VERSION = '0.0.6'
+VERSION = '0.0.7'
 DESCRIPTION = 'Algorithms to find similarity between HTML pages.'
-LONG_DESCRIPTION = 'A package that allows to compare website/app HTML page structure. Contains algorithms that find a ' \
-                   'similarity rate between two HTML structures.'
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 # Setting up
 setup(
@@ -13,7 +14,7 @@ setup(
     author_email="<pedrocarvalho812@gmail.com>",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
-    long_description=LONG_DESCRIPTION,
+    long_description=long_description,
     packages=find_packages(),
     url='https://github.com/officialpedrocarvalho/html-matcher',
     download_url='https://github.com/officialpedrocarvalho/html-matcher/releases/tag/version',
