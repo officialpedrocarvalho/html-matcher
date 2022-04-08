@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from pathlib import Path
 
-VERSION = '0.0.7'
+VERSION = '0.0.8'
 DESCRIPTION = 'Algorithms to find similarity between HTML pages.'
 this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
