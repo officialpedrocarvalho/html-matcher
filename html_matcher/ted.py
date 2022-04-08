@@ -21,9 +21,9 @@ class CustomConfig(Config):
 class AllPathTreeEditDistance(Similarity):
 
     def similarity(self, page1, page2):
-        html1 = lxml.html.parse(StringIO(page1))
+        html1 = lxml.html.parse(StringIO(page1)).find('body')
         tree1 = html_to_json(html1)
-        html2 = lxml.html.parse(StringIO(page2))
+        html2 = lxml.html.parse(StringIO(page2)).find('body')
         tree2 = html_to_json(html2)
         apted = APTED(tree1, tree2, CustomConfig())
         matching = apted.compute_edit_distance()

@@ -29,7 +29,7 @@ class ExcelExporter(object):
         print(f"Exported: {self.file.filename}")
 
     def __build_file(self):
-        self.file = xw.Workbook(f'results/{self.method}_{self.website}_{self.nr_files}.xlsx')
+        self.file = xw.Workbook(f'{self.method}_{self.website}_{self.nr_files}.xlsx')
         self.page = self.file.add_worksheet('Results')
 
     def __build_table_header(self, row):
