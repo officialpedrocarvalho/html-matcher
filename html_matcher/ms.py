@@ -3,8 +3,8 @@ from io import StringIO
 
 import lxml.html
 
-from similarity import Similarity
-from utils import html_to_json_improved, json_to_array
+from html_matcher.similarity import Similarity
+from html_matcher.utils import html_to_json_improved, json_to_array
 
 
 class MatchingSubsequences(Similarity):

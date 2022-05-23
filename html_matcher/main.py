@@ -1,11 +1,11 @@
 import sys
 
-from export import ExcelExporter
-from ms import MatchingSubsequences, MatchingSubsequencesOptimized
-from similarity import MixedSimilarity
-from style import StyleSimilarity
-from ted import AllPathTreeEditDistance, AllPathTreeEditDistanceOptimized
-from utils import get_files, get_results
+from html_matcher.export import ExcelExporter
+from html_matcher.ms import MatchingSubsequences, MatchingSubsequencesOptimized
+from html_matcher.similarity import MixedSimilarity
+from html_matcher.style import StyleSimilarity
+from html_matcher.ted import AllPathTreeEditDistance, AllPathTreeEditDistanceOptimized
+from html_matcher.utils import get_files, get_results
 
 if __name__ == '__main__':
     arguments = sys.argv[1:]
