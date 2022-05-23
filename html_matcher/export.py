@@ -1,5 +1,5 @@
 import xlsxwriter as xw
-
+import os
 
 class ExcelExporter(object):
 
@@ -29,7 +29,9 @@ class ExcelExporter(object):
         print(f"Exported: {self.file.filename}")
 
     def __build_file(self):
-        self.file = xw.Workbook(f'{self.method}_{self.website}_{self.nr_files}.xlsx')
+        if not os.path.exists(self.website):
+            os.mkdir(self.website)
+        self.file = xw.Workbook(f'{self.website}/{self.method}_{self.website}_{self.nr_files}.xlsx')
         self.page = self.file.add_worksheet('Results')
 
     def __build_table_header(self, row):

@@ -3,11 +3,11 @@ from io import StringIO
 
 import lxml.html
 
-from html_matcher.similarity import Similarity
-from html_matcher.utils import html_to_json_improved, json_to_array
+from similarity import Similarity
+from utils import html_to_json_improved, json_to_array
 
 
-class LongestCommonSequence(Similarity):
+class MatchingSubsequences(Similarity):
 
     def get_tags(self, doc):
         tags = list()
@@ -27,7 +27,7 @@ class LongestCommonSequence(Similarity):
         return diff.ratio()
 
 
-class LongestCommonSequenceOptimized(LongestCommonSequence):
+class MatchingSubsequencesOptimized(MatchingSubsequences):
 
     def get_tags(self, doc):
         json = html_to_json_improved(doc.find('body'))

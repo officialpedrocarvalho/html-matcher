@@ -4,8 +4,8 @@ import lxml
 from apted.apted import APTED
 from apted.config import Config
 
-from html_matcher.similarity import Similarity
-from html_matcher.utils import json_count_elements, html_to_json, html_to_json_improved
+from similarity import Similarity
+from utils import json_count_elements, html_to_json, html_to_json_improved
 
 
 class CustomConfig(Config):

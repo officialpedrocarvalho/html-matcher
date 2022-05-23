@@ -1,6 +1,6 @@
 from parsel import Selector
 
-from html_matcher.similarity import Similarity
+from similarity import Similarity
 
 
 class StyleSimilarity(Similarity):

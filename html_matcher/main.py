@@ -1,11 +1,11 @@
 import sys
 
-from html_matcher.export import ExcelExporter
-from html_matcher.lcs import LongestCommonSequence, LongestCommonSequenceOptimized
-from html_matcher.similarity import MixedSimilarity
-from html_matcher.style import StyleSimilarity
-from html_matcher.ted import AllPathTreeEditDistance, AllPathTreeEditDistanceOptimized
-from html_matcher.utils import get_files, get_results
+from export import ExcelExporter
+from ms import MatchingSubsequences, MatchingSubsequencesOptimized
+from similarity import MixedSimilarity
+from style import StyleSimilarity
+from ted import AllPathTreeEditDistance, AllPathTreeEditDistanceOptimized
+from utils import get_files, get_results
 
 if __name__ == '__main__':
     arguments = sys.argv[1:]
@@ -16,24 +16,24 @@ if __name__ == '__main__':
 
     style = StyleSimilarity()
 
-    lcs = LongestCommonSequence()
-    final_data, details, duration = get_results(files, lcs.similarity)
-    exporter = ExcelExporter(final_data, details, duration, 0, 0.05, 'LCS', website, len(files))
+    ms = MatchingSubsequences()
+    final_data, details, duration = get_results(files, ms.similarity)
+    exporter = ExcelExporter(final_data, details, duration, 0, 0.05, 'MS', website, len(files))
     exporter.results_to_excel()
 
-    lcs_optimized = LongestCommonSequenceOptimized()
-    final_data, details, duration = get_results(files, lcs_optimized.similarity)
-    exporter = ExcelExporter(final_data, details, duration, 0, 0.05, 'X_LCS', website, len(files))
+    ms_optimized = MatchingSubsequencesOptimized()
+    final_data, details, duration = get_results(files, ms_optimized.similarity)
+    exporter = ExcelExporter(final_data, details, duration, 0, 0.05, 'X_MS', website, len(files))
     exporter.results_to_excel()
 
-    mixed_lcs = MixedSimilarity(lcs, style, k)
-    final_data, details, duration = get_results(files, mixed_lcs.similarity)
-    exporter = ExcelExporter(final_data, details, duration, 0, 0.05, f'LCS_Style_{int(k * 10)}', website, len(files))
+    mixed_ms = MixedSimilarity(ms, style, k)
+    final_data, details, duration = get_results(files, mixed_ms.similarity)
+    exporter = ExcelExporter(final_data, details, duration, 0, 0.05, f'MS_Style_{int(k * 10)}', website, len(files))
     exporter.results_to_excel()
 
-    mixed_lcs_optimized = MixedSimilarity(lcs_optimized, style, k)
-    final_data, details, duration = get_results(files, mixed_lcs_optimized.similarity)
-    exporter = ExcelExporter(final_data, details, duration, 0, 0.05, f'X_LCS_style_{int(k * 10)}', website, len(files))
+    mixed_ms_optimized = MixedSimilarity(ms_optimized, style, k)
+    final_data, details, duration = get_results(files, mixed_ms_optimized.similarity)
+    exporter = ExcelExporter(final_data, details, duration, 0, 0.05, f'X_MS_style_{int(k * 10)}', website, len(files))
     exporter.results_to_excel()
 
     apted = AllPathTreeEditDistance()
